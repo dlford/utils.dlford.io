@@ -1,4 +1,10 @@
-/* Add CSS styles here! */
-body {
-  font-family: sans-serif;
+body,
+.root {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  max-height: 100%;
+  background-color: #232c34;
+  color: #eee;
 }

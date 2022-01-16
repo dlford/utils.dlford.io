@@ -1,0 +1,34 @@
+.base-64 {
+  display: flex;
+  flex-direction: column;
+}
+
+.base-64 .error-wrapper {
+  min-height: 64px;
+}
+
+.base-64 .error {
+  color: red;
+}
+
+.base-64 button {
+  margin-bottom: 2rem;
+  background-color: #232c34;
+  color: #eee;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.base-64 textarea {
+  width: 80vw;
+  max-width: 40rem;
+  height: 30vh;
+  max-height: 12rem;
+  background-color: #232c34;
+  color: #eee;
+  border: none;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+}
