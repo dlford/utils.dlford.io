@@ -14,26 +14,33 @@ export default function Base64() {
     }
   }, [base64, ascii]);
 
-  function convertToAscii() {
+  function convertToAscii(value = base64) {
     try {
-      setAscii(decode(base64));
+      setAscii(decode(value));
     } catch (e) {
       setIsError(true);
     }
   }
 
-  function convertToBase64() {
-    setBase64(encode(ascii));
+  function convertToBase64(value = ascii) {
+    setBase64(encode(value));
   }
 
-  function handleInputChange(event) {
-    switch (event.target.id) {
-      case 'ascii':
-        setAscii(event.target.value);
-        break;
-      case 'base64':
-        setBase64(event.target.value);
-        break;
+  function handleAsciiChange(event) {
+    setAscii(event.target.value);
+    if (event.target.value) {
+      convertToBase64(event.target.value);
+    } else {
+      setBase64('');
+    }
+  }
+
+  function handleBase64Change(event) {
+    setBase64(event.target.value);
+    if (event.target.value) {
+      convertToAscii(event.target.value);
+    } else {
+      setAscii('');
     }
   }
 
@@ -42,19 +49,17 @@ export default function Base64() {
       <label htmlFor='ascii'>ASCII</label>
       <textarea
         id='ascii'
-        onChange={handleInputChange}
+        onChange={handleAsciiChange}
         value={ascii}
         type='text'
       />
-      <button onClick={convertToBase64}>Convert to Base64</button>
       <label htmlFor='base64'>Base64</label>
       <textarea
         id='base64'
-        onChange={handleInputChange}
+        onChange={handleBase64Change}
         value={base64}
         type='text'
       />
-      <button onClick={convertToAscii}>Convert to ASCII</button>
       <div className='error-wrapper'>
         {!!isError && (
           <p className='error'>Invalid character in Base64 input</p>
