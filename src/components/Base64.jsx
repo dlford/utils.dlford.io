@@ -12,7 +12,7 @@ export default function Base64() {
     if (isError) {
       setIsError(false);
     }
-  }, [base64, ascii]);
+  }, [ascii]);
 
   function convertToAscii(value = base64) {
     try {
@@ -62,7 +62,9 @@ export default function Base64() {
       />
       <div className='error-wrapper'>
         {!!isError && (
-          <p className='error'>Invalid character in Base64 input</p>
+          <p className='error'>
+            Unable to decode - Invalid character
+          </p>
         )}
       </div>
     </div>
