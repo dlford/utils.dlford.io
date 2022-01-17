@@ -1,0 +1,24 @@
+.json-formatter {
+  display: flex;
+  flex-direction: column;
+}
+
+.json-formatter .error-wrapper {
+  min-height: 64px;
+}
+
+.json-formatter .error {
+  color: red;
+}
+
+.json-formatter textarea {
+  width: 80vw;
+  max-width: 40rem;
+  height: 30vh;
+  max-height: 12rem;
+  background-color: #232c34;
+  color: #eee;
+  border: none;
+  margin-bottom: 2rem;
+  padding: 0.25rem;
+}
