@@ -56,6 +56,7 @@ export default function Base64() {
       <label htmlFor='base64'>Base64</label>
       <textarea
         id='base64'
+        className='output'
         onChange={handleBase64Change}
         value={base64}
         type='text'

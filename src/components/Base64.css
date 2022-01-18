@@ -4,11 +4,13 @@
 }
 
 .base-64 .error-wrapper {
-  min-height: 64px;
+  min-height: 74px;
 }
 
 .base-64 .error {
   color: red;
+  width: 80vw;
+  max-width: 40rem;
 }
 
 .base-64 textarea {
@@ -21,4 +23,20 @@
   border: none;
   margin-bottom: 2rem;
   padding: 0.25rem;
+  resize: none;
+  overflow: auto;
+}
+
+.base-64 .output {
+  width: 80vw;
+  max-width: 40rem;
+  height: 60vh;
+  max-height: 30rem;
+  background-color: #232c34;
+  color: #eee;
+  border: none;
+  margin-bottom: 2rem;
+  padding: 0.25rem;
+  margin-top: 0;
+  overflow: auto;
 }
