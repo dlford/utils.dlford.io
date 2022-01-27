@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import './ImageConverter.css';
-
 export default function ImageConverter() {
   const [file, setFile] = useState(null);
   const [dataObject, setDataObject] = useState(null);

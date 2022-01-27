@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import parse from 'html-react-parser';
-
-import './JsonFormatter.css';
+import styled from 'styled-components';
 
 const errorRegex = /line ([0-9]+) column ([0-9]+)/;
 
@@ -51,7 +50,7 @@ export default function JsonFormatter() {
   }
 
   return (
-    <div className='json-formatter'>
+    <StyledJsonFormatter>
       <label htmlFor='input'>JSON</label>
       <textarea id='input' name='input' onChange={handleChange} />
       <label htmlFor='output'>Formatted</label>
@@ -61,6 +60,58 @@ export default function JsonFormatter() {
       <div className='error-wrapper'>
         {!!error && <p className='error'>{error}</p>}
       </div>
-    </div>
+    </StyledJsonFormatter>
   );
 }
+
+const StyledJsonFormatter = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  .error-wrapper {
+    min-height: 74px;
+  }
+
+  .error {
+    color: red;
+    width: 80vw;
+    max-width: 40rem;
+  }
+
+  textarea {
+    width: 80vw;
+    max-width: 40rem;
+    height: 30vh;
+    max-height: 12rem;
+    background-color: #232c34;
+    color: #eee;
+    border: none;
+    margin-bottom: 2rem;
+    padding: 0.25rem;
+    resize: none;
+    overflow: auto;
+  }
+
+  .output {
+    width: 80vw;
+    max-width: 40rem;
+    height: 60vh;
+    max-height: 30rem;
+    background-color: #232c34;
+    color: #eee;
+    border: none;
+    margin-bottom: 2rem;
+    padding: 0.25rem;
+    margin-top: 0;
+    overflow: auto;
+  }
+
+  .output .bad-line {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+
+  .output .bad-letter {
+    color: red;
+    background-color: black;
+  }
+`;

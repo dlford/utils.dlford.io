@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { encode, decode } from 'js-base64';
-
-import './Base64.css';
+import styled from 'styled-components';
 
 export default function Base64() {
   const [ascii, setAscii] = useState('');
@@ -45,7 +44,7 @@ export default function Base64() {
   }
 
   return (
-    <div className='base-64'>
+    <StyledBase64Converter>
       <label htmlFor='ascii'>ASCII</label>
       <textarea
         id='ascii'
@@ -68,6 +67,49 @@ export default function Base64() {
           </p>
         )}
       </div>
-    </div>
+    </StyledBase64Converter>
   );
 }
+
+const StyledBase64Converter = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  .error-wrapper {
+    min-height: 74px;
+  }
+
+  .error {
+    color: red;
+    width: 80vw;
+    max-width: 40rem;
+  }
+
+  textarea {
+    width: 80vw;
+    max-width: 40rem;
+    height: 30vh;
+    max-height: 12rem;
+    background-color: #232c34;
+    color: #eee;
+    border: none;
+    margin-bottom: 2rem;
+    padding: 0.25rem;
+    resize: none;
+    overflow: auto;
+  }
+
+  .output {
+    width: 80vw;
+    max-width: 40rem;
+    height: 60vh;
+    max-height: 30rem;
+    background-color: #232c34;
+    color: #eee;
+    border: none;
+    margin-bottom: 2rem;
+    padding: 0.25rem;
+    margin-top: 0;
+    overflow: auto;
+  }
+`;
