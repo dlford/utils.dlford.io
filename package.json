@@ -3,28 +3,24 @@
     "start": "snowpack dev",
     "build": "snowpack build",
     "test": "echo \"This template does not include a test runner by default.\" && exit 1",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,vue}\"",
     "precommit": "lint-staged",
-    "lint": "eslint --ignore-path .gitignore --fix . --ext ts --ext tsx --ext js --ext jsx",
+    "lint": "eslint --ignore-path .gitignore --fix . --ext ts --ext tsx --ext js --ext jsx --ext vue",
     "postinstall": "husky install"
   },
   "devDependencies": {
-    "@snowpack/plugin-react-refresh": "^2.5.0",
+    "@snowpack/plugin-vue": "^2.6.2",
+    "@vue/compiler-sfc": "^3.0.11",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-config-react": "^1.1.7",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.28.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.7",
     "prettier": "^2.5.1",
     "snowpack": "^3.3.7"
   },
   "dependencies": {
-    "html-react-parser": "^1.4.5",
     "js-base64": "^3.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "styled-components": "^5.3.3"
+    "vue": "^3.0.11"
   }
 }

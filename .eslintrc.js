@@ -1,7 +1,6 @@
 module.exports = {
   extends: [
     'eslint:recommended',
-    'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
   settings: {
@@ -15,12 +14,12 @@ module.exports = {
     es6: true,
     jest: false,
   },
-  plugins: ['prettier', 'react'],
+  plugins: ['prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+    ecmaVersion: 2022, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
   },
   rules: {
