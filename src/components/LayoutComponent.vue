@@ -1,5 +1,5 @@
 <template>
-  <div class="header">WIP: Vue rewrite in progress</div>
+  <div class="header"> WIP: Vue rewrite in progress </div>
 </template>
 
 <style>

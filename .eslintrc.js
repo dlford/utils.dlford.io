@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:prettier/recommended',
+    'plugin:eslint-plugin-vue/recommended',
   ],
   settings: {
     react: {
@@ -14,7 +15,7 @@ module.exports = {
     es6: true,
     jest: false,
   },
-  plugins: ['prettier'],
+  plugins: ['prettier', 'eslint-plugin-vue'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -25,6 +26,7 @@ module.exports = {
   rules: {
     'react/prop-types': 'off',
     'no-unused-vars': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
   },
   overrides: [],
 };

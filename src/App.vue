@@ -1,5 +1,5 @@
 <script>
-import Layout from './components/Layout.vue'
+import Layout from './components/LayoutComponent.vue';
 
 export default {
   components: {
@@ -12,5 +12,5 @@ export default {
 </script>
 
 <template>
-  <Layout/>
+  <Layout />
 </template>
