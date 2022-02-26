@@ -1,5 +1,5 @@
 import WelcomeTool from './WelcomeTool.vue';
-import TestTool from './TestTool.vue';
+import Base64Tool from './Base64Tool.vue';
 
 export default [
   {
@@ -7,7 +7,7 @@ export default [
     payload: WelcomeTool,
   },
   {
-    title: 'Test',
-    payload: TestTool,
+    title: 'Base64 Encode/Decode',
+    payload: Base64Tool,
   },
 ];
