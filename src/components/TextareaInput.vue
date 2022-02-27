@@ -27,8 +27,7 @@ const value = computed({
 <template>
   <label>
     {{ label }}
-    <input
-      type="text"
+    <textarea
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
     />
