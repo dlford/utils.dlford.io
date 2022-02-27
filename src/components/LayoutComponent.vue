@@ -17,7 +17,7 @@ function toggleNav() {
 <template>
   <div class="outer">
     <button class="burger" @click="toggleNav">Menu</button>
-    <ul class="nav" :class="!!showMenu && active">
+    <ul :class="!!showMenu ? 'nav active' : 'nav'">
       <li
         v-for="tool in tools"
         :key="tool.title"
