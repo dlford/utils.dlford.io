@@ -4,6 +4,8 @@ import WelcomeTool from './WelcomeTool.vue';
 import Base64Tool from './Base64Tool.vue';
 import JsonFormatterTool from './JsonFormatterTool.vue';
 
+/* TODO: Icons */
+
 export default [
   {
     title: 'Home',

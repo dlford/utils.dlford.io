@@ -1,7 +1,6 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
     <defs />
-    <title>hamburger</title>
     <g class="cls-1">
       <g id="icons" class="cls-2">
         <path
@@ -89,6 +88,9 @@
 </template>
 
 <style scoped>
+svg {
+  width: 32px;
+}
 .cls-1 {
   isolation: isolate;
 }

@@ -19,7 +19,7 @@ function toggleNav() {
 </script>
 
 <template>
-  <main class="outer">
+  <main :class="!!showMenu ? 'outer menu-open' : 'outer'">
     <header class="header" aria-hidden="true">
       <div class="inner">
         <a
@@ -184,5 +184,40 @@ function toggleNav() {
   display: flex;
   justify-content: center;
   padding: 0.25rem;
+}
+@media (min-width: 40em) {
+  .outer {
+    grid-template-areas: 'header header' 'nav tool' 'footer footer';
+    grid-template-columns: minmax(2.75rem, 2.75rem) 1fr;
+    grid-template-rows: var(--header-height) 1fr var(--header-height);
+    transition: grid-template-columns 150ms ease-in-out;
+  }
+  .outer.menu-open {
+    grid-template-columns: minmax(10rem, 20vw) 1fr;
+  }
+  .burger {
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+  }
+  .nav {
+    grid-area: nav;
+    transform: none;
+    transition: none;
+    position: relative;
+    height: calc(100% - (var(--padding) * 2));
+    overflow-x: hidden;
+    top: 0;
+  }
+  .header {
+    justify-content: center;
+  }
+  .tool {
+    justify-content: center;
+    align-items: center;
+  }
+  .tool > * {
+    width: auto;
+  }
 }
 </style>
