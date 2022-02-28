@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import tools from '../tools';
 import DlfordLogo from '../assets/DlfordLogo.vue';
 import GithubLogo from '../assets/GithubLogo.vue';
+import HamburgerIcon from '../assets/HamburgerIcon.vue';
 
 const currentTool = ref(tools[0]);
 const showMenu = ref(false);
@@ -38,7 +39,7 @@ function toggleNav() {
       :aria-expanded="!!showMenu"
       @click="toggleNav"
     >
-      Menu
+      <HamburgerIcon />
     </button>
     <nav
       :class="!!showMenu ? 'nav active' : 'nav'"
@@ -152,7 +153,7 @@ function toggleNav() {
   padding: 0;
 }
 .nav li {
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
   cursor: pointer;
 }
 .tool {

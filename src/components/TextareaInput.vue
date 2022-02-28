@@ -1,4 +1,6 @@
 <script setup>
+/* global emit */
+
 import { computed } from 'vue';
 
 const props = defineProps({
@@ -12,9 +14,9 @@ const props = defineProps({
   },
 });
 
-const emits = defineEmits(['update:modelValue']);
+defineEmits(['update:modelValue']);
 
-const value = computed({
+computed({
   get() {
     return props.modelValue;
   },

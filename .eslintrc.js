@@ -1,8 +1,8 @@
 module.exports = {
   extends: [
+    'plugin:vue/vue3-recommended',
     'eslint:recommended',
-    'plugin:prettier/recommended',
-    'plugin:eslint-plugin-vue/recommended',
+    'prettier',
   ],
   settings: {
     react: {
@@ -13,20 +13,19 @@ module.exports = {
     browser: true,
     node: true,
     es6: true,
-    jest: false,
+    'vue/setup-compiler-macros': true,
   },
-  plugins: ['prettier', 'eslint-plugin-vue'],
+  plugins: ['prettier', 'vue'],
+  parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: false,
     },
     ecmaVersion: 2022, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
   },
   rules: {
-    'react/prop-types': 'off',
-    'no-unused-vars': 'off',
-    'vue/singleline-html-element-content-newline': 'off',
+    'vue/no-v-html': 'off',
   },
   overrides: [],
 };

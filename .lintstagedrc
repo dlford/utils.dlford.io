@@ -1,5 +1,5 @@
 {
-  "*.{ts,tsx,js,jsx}": [
+  "*.{ts,tsx,js,jsx,vue}": [
     "eslint --fix"
   ],
   "*.*(json|css|md|mdx)": [
