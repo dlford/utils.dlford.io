@@ -55,7 +55,12 @@ function toggleNav() {
           @click="changeTool(tool)"
           @keydown.enter="changeTool(tool)"
         >
-          {{ tool.title }}
+          <span v-if="!!tool.icon" class="icon">
+            <component :is="tool.icon" />
+          </span>
+          <span class="title">
+            {{ tool.title }}
+          </span>
         </li>
       </ul>
     </nav>
@@ -155,6 +160,15 @@ function toggleNav() {
 .nav li {
   padding: 0.5rem 0;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav li .icon {
+  display: inline-block;
+}
+.nav li .icon svg {
+  width: 18px;
 }
 .tool {
   grid-area: tool;
@@ -194,6 +208,9 @@ function toggleNav() {
   }
   .outer.menu-open {
     grid-template-columns: minmax(10rem, 20vw) 1fr;
+  }
+  .outer:not(.menu-open) .nav .title {
+    visibility: hidden;
   }
   .burger {
     position: absolute;
