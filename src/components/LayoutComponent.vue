@@ -51,6 +51,7 @@ function toggleNav() {
         <li
           v-for="tool in tools"
           :key="tool.title"
+          :title="tool.title"
           tabindex="0"
           @click="changeTool(tool)"
           @keydown.enter="changeTool(tool)"
@@ -169,6 +170,7 @@ function toggleNav() {
 }
 .nav li .icon svg {
   width: 18px;
+  height: 18px;
 }
 .tool {
   grid-area: tool;
@@ -211,6 +213,8 @@ function toggleNav() {
   }
   .outer:not(.menu-open) .nav .title {
     visibility: hidden;
+    overflow: hidden;
+    white-space: nowrap;
   }
   .burger {
     position: absolute;
