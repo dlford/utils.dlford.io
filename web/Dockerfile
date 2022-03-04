@@ -20,6 +20,7 @@ COPY --from=builder_vite --chown=nginx:nginx /app/dist /usr/share/nginx/html
 COPY --from=builder_go --chown=nginx:nginx /go/bin/healthcheck /usr/local/bin/healthcheck
 COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY ./docker/nginx/mime.types /etc/nginx/mime.types
 RUN chown -R nginx:nginx /var/cache/nginx
 
 RUN apk --no-cache add --virtual native-deps tzdata
