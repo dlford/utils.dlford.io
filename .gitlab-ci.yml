@@ -15,7 +15,7 @@ build_production:
   environment:
     name: Build Production
   only:
-    - master
+    - main
   stage: build
   script: >
     cd web && npx browserslist@latest --update-db && cd .. &&
@@ -36,7 +36,7 @@ deploy_production:
   environment:
     name: Deploy to Production
   only:
-    - master
+    - main
   stage: deploy
   script:
     - COMPOSE_PROJECT_NAME=utils_production docker-compose up -d --force-recreate --remove-orphans
