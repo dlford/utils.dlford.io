@@ -1,0 +1,51 @@
+stages:
+  - build
+  - deploy
+  - cleanup
+build_staging:
+  environment:
+    name: Build Staging
+  only:
+    - staging
+  stage: build
+  script:
+    - npx browserslist@latest --update-db
+    - COMPOSE_PROJECT_NAME=utils_staging docker-compose build --parallel
+build_production:
+  environment:
+    name: Build Production
+  only:
+    - master
+  stage: build
+  script: >
+    cd web && npx browserslist@latest --update-db && cd .. &&
+    COMPOSE_PROJECT_NAME=utils_production
+    docker-compose build --parallel
+    --build-arg COMMIT=$(git rev-parse --verify HEAD)
+    --build-arg BRANCH=$(git rev-parse --abbrev-ref HEAD)
+deploy_staging:
+  environment:
+    name: Deploy to Staging
+  only:
+    - staging
+  stage: deploy
+  script:
+    - COMPOSE_PROJECT_NAME=utils_staging docker-compose up -d --force-recreate --remove-orphans
+    - docker port utils_staging_web_1
+deploy_production:
+  environment:
+    name: Deploy to Production
+  only:
+    - master
+  stage: deploy
+  script:
+    - COMPOSE_PROJECT_NAME=utils_production docker-compose up -d --force-recreate --remove-orphans
+cleanup_staging:
+  when: manual
+  environment:
+    name: Clean up Staging
+  only:
+    - staging
+  stage: cleanup
+  script:
+    - COMPOSE_PROJECT_NAME=utils_staging npm run docker-compose stop

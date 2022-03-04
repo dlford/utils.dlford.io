@@ -1,0 +1,15 @@
+# TODO: rewrite
+
+version: '3.7'
+
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      COMMIT: ${COMMIT}
+      BRANCH: ${BRANCH}
+    ports:
+      - '9104:8080'
