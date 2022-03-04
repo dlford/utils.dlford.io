@@ -1,8 +1,10 @@
 <script setup>
 import Layout from './components/LayoutComponent.vue';
+import PwaReloadPrompt from './components/PwaReloadPrompt.vue';
 </script>
 
 <template>
+  <PwaReloadPrompt />
   <Layout />
 </template>
 

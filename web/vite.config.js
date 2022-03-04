@@ -9,20 +9,7 @@ export default defineConfig({
     vue(),
     ViteFonts({
       google: {
-        families: [
-          {
-            name: 'Slabo',
-            styles: 'regular,wght@0,700',
-          },
-          {
-            name: 'Lato',
-            styles: 'regular,wght@0,400',
-          },
-          {
-            name: 'Source Code Pro',
-            styles: 'regular,wght@0,400',
-          },
-        ],
+        families: ['Slabo 27px', 'Lato', 'Source Code Pro'],
       },
     }),
     VitePWA({

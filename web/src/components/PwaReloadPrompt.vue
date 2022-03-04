@@ -1,4 +1,5 @@
 <script setup>
+// TODO: Style toast, remove app ready
 import { useRegisterSW } from 'virtual:pwa-register/vue';
 
 const { offlineReady, needRefresh, updateServiceWorker } =
@@ -17,7 +18,9 @@ const close = async () => {
     role="alert"
   >
     <div class="message">
-      <span v-if="offlineReady"> App ready to work offline </span>
+      <span v-if="offlineReady">
+        This app is ready to work offline
+      </span>
       <span v-else>
         New content available, click on reload button to update.
       </span>
@@ -33,15 +36,15 @@ const close = async () => {
 .pwa-toast {
   position: fixed;
   right: 0;
-  bottom: 0;
+  bottom: 3rem;
   margin: 16px;
   padding: 12px;
-  border: 1px solid #8885;
   border-radius: 4px;
   z-index: 1;
   text-align: left;
-  box-shadow: 3px 4px 5px 0 #8885;
-  background-color: white;
+  box-shadow: 1px 3px 5px 0 var(--black);
+  background-color: var(--primary-dark);
+  color: var(--white);
 }
 .pwa-toast .message {
   margin-bottom: 8px;
