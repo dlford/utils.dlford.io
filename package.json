@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,vue}\"",
     "precommit": "lint-staged",
@@ -25,6 +25,7 @@
     "lint-staged": "^12.3.4",
     "prettier": "^2.5.1",
     "vite": "^2.8.0",
-    "vite-plugin-fonts": "^0.2.2"
+    "vite-plugin-fonts": "^0.2.2",
+    "vite-plugin-pwa": "^0.11.13"
   }
 }

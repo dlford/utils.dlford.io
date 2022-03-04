@@ -111,4 +111,8 @@ textarea {
 .error {
   color: var(--red);
 }
+
+.tool p {
+  max-width: 300px;
+}
 </style>
