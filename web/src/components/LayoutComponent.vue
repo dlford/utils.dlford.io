@@ -1,21 +1,51 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import debounce from '../lib/debounce';
 import tools from '../tools';
 import DlfordLogo from '../assets/DlfordLogo.vue';
 import GithubLogo from '../assets/GithubLogo.vue';
 import HamburgerIcon from '../assets/HamburgerIcon.vue';
 
 const currentTool = ref(tools[0]);
-const showMenu = ref(false);
+const showMenu = ref(window.innerWidth >= 640);
 
 function changeTool(tool) {
   currentTool.value = tool;
-  showMenu.value = false;
+  if (window.innerWidth < 640) {
+    showMenu.value = false;
+  }
 }
 
 function toggleNav() {
   showMenu.value = !showMenu.value;
 }
+
+function handleWidthChange() {
+  if (window.innerWidth < 640) {
+    showMenu.value = false;
+    return;
+  }
+  showMenu.value = true;
+}
+
+const debounceTime = 150;
+onMounted(() => {
+  ['resize', 'orientationchange'].forEach((name) => {
+    window.addEventListener(
+      name,
+      debounce(handleWidthChange, debounceTime),
+    );
+  });
+});
+
+onBeforeUnmount(() => {
+  ['resize', 'orientationchange'].forEach((name) => {
+    window.removeEventListener(
+      name,
+      debounce(handleWidthChange, debounceTime),
+    );
+  });
+});
 </script>
 
 <template>
