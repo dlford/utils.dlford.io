@@ -1,43 +1,57 @@
 <script setup>
-import { watch, ref } from 'vue';
+import { ref } from 'vue';
 import TextInput from '../components/TextInput.vue';
 
 const types = {
-  inputWidth: 'INPUT_WIDTH',
-  inputHeight: 'INPUT_HEIGHT',
-  outputWidth: 'OUTPUT_WIDTH',
-  outputHeight: 'OUTPUT_HEIGHT',
+  inputWidth: 'Source Width',
+  inputHeight: 'Source Height',
+  outputWidth: 'Output Width',
+  outputHeight: 'Output Height',
 };
 
-const inputWidth = ref(undefined);
-const inputHeight = ref(undefined);
-const outputWidth = ref(undefined);
-const outputHeight = ref(undefined);
+const inputWidth = ref('');
+const inputHeight = ref('');
+const outputWidth = ref('');
+const outputHeight = ref('');
+const isError = ref(false);
 const ratio = ref('');
 
-/*
-watch((), (val) => {
-  console.log(val);
-});
-*/
+function checkInputs() {
+  let message = [];
 
-function sanitize(input) {
-  return input.replace(/[^0-9.]/g, '');
+  const checks = [
+    { type: types.inputWidth, value: inputWidth.value },
+    { type: types.inputHeight, value: inputHeight.value },
+    { type: types.outputWidth, value: outputWidth.value },
+    { type: types.outputHeight, value: outputHeight.value },
+  ];
+
+  for (const check of checks) {
+    if (!!check.value && !/^\d+\.?(\d+)?$/.test(check.value)) {
+      message.push(`${check.type} is not a number`);
+    }
+  }
+
+  if (message.length) {
+    isError.value = message.join(', ');
+    return false;
+  }
+
+  isError.value = false;
+  return true;
 }
 
 function handleChange(type) {
+  if (!checkInputs()) return;
+
   switch (type) {
     case types.inputWidth:
-      inputWidth.value = sanitize(inputWidth.value);
       break;
     case types.inputHeight:
-      inputHeight.value = sanitize(inputHeight.value);
       break;
     case types.outputWidth:
-      outputWidth.value = sanitize(outputWidth.value);
       break;
     case types.outputHeight:
-      outputHeight.value = sanitize(outputHeight.value);
       break;
     default:
       break;
@@ -63,16 +77,17 @@ function handleChange(type) {
     <TextInput
       v-model="outputWidth"
       inputmode="numeric"
-      label="Source Width"
+      label="Output Width"
       @input="handleChange(types.outputWidth)"
     />
     <TextInput
       v-model="outputHeight"
       inputmode="numeric"
-      label="Source Height"
+      label="Output Height"
       @input="handleChange(types.outputHeight)"
     />
     <p v-if="ratio">Ratio: {{ ratio }}</p>
+    <p v-if="isError" class="error"> Error: {{ isError }} </p>
   </div>
 </template>
 
