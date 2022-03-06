@@ -15,6 +15,7 @@ const outputWidth = ref('');
 const outputHeight = ref('');
 const isError = ref(false);
 const ratio = ref('');
+const ratioDec = ref(0);
 
 function checkInputs() {
   let message = [];
@@ -27,6 +28,7 @@ function checkInputs() {
   ];
 
   for (const check of checks) {
+    if (Number.isNaN(check.value) || check.value === 'NaN') check.value = '';
     if (!!check.value && !/^\d+\.?(\d+)?$/.test(check.value)) {
       message.push(`${check.type} is not a number`);
     }
@@ -46,6 +48,14 @@ function handleChange(type) {
 
   switch (type) {
     case types.inputWidth:
+      if (inputHeight.value) {
+        if  (outputWidth.value) {
+          ratioDec.value = parseFloat(inputHeight.value) / parseFloat(inputWidth.value);
+          outputHeight.value = String(parseFloat(outputWidth.value) * ratioDec.value);
+        }
+        if (outputHeight.value) {
+        }
+      }
       break;
     case types.inputHeight:
       break;
