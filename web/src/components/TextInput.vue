@@ -12,6 +12,14 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  type: {
+    type: String,
+    default: 'text',
+  },
+  inputmode: {
+    type: String,
+    default: undefined,
+  },
 });
 
 defineEmits(['update:modelValue']);
@@ -30,8 +38,9 @@ computed({
   <label>
     {{ label }}
     <input
-      type="text"
+      :type="type"
       :value="modelValue"
+      :inputmode="inputmode"
       @input="$emit('update:modelValue', $event.target.value)"
     />
   </label>
