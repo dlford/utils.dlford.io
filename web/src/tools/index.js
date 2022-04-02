@@ -8,8 +8,7 @@ import Base64Tool from './Base64Tool.vue';
 import Base64Icon from '../assets/Base64Icon.vue';
 import JsonFormatterTool from './JsonFormatterTool.vue';
 import JsonIcon from '../assets/JsonIcon.vue';
-
-/* TODO: Icons */
+import DiffTool from './DiffTool.vue';
 
 export default [
   {
@@ -26,6 +25,11 @@ export default [
     title: 'Base64 Encode/Decode',
     payload: shallowRef(Base64Tool),
     icon: Base64Icon,
+  },
+  {
+    title: 'Text Diff',
+    payload: shallowRef(DiffTool),
+    icon: JsonIcon,
   },
   {
     title: 'JSON Formatter',
