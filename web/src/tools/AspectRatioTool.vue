@@ -143,7 +143,7 @@ function handleChange(type) {
 <style scoped>
 .form {
   justify-content: center;
-  max-width: 100;
+  max-width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 45%);
   grid-template-rows: repeat(2, 1fr);

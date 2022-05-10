@@ -110,6 +110,17 @@ textarea {
   min-height: 9ch;
 }
 
+button {
+  color: var(--white);
+  background-color: var(--primary-dark);
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .error {
   color: var(--red);
 }

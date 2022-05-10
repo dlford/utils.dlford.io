@@ -12,6 +12,7 @@
   "dependencies": {
     "browserslist": "^4.20.0",
     "js-base64": "^3.7.2",
+    "uuid": "^8.3.2",
     "vue": "^3.2.25"
   },
   "devDependencies": {
